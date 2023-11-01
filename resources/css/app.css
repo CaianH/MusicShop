@@ -8,7 +8,7 @@
 /* Estilos gerais da página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #cbc8c8;
+    background-color: #d23939;
     margin: 0;
     padding: 0;
 }
@@ -39,59 +39,6 @@ nav a {
     font-weight: bold;
 }
 
-section.banner img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-section.produtos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 20px;
-}
-
-.produto {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.produto img {
-    max-width: 100%;
-    height: auto;
-}
-
-.produto h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-}
-
-.produto p {
-    font-size: 1em;
-    color: #555;
-    margin: 10px 0;
-}
-
-.preco {
-    font-size: 1.2em;
-    color: #e44d26;
-    font-weight: bold;
-}
-
-button {
-    background-color: #e44d26;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
 
 footer {
     background-color: #333;
