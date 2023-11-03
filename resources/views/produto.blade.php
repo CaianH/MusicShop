@@ -6,8 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Produto</title>
-    <link rel="stylesheet" href="cadProd.css">
-</head>
+    <link rel="stylesheet" href="{{ asset('css/cadProd.css') }}">
+
 <body>
     <form action="/cadastrar-produto" method="POST">
         @csrf
@@ -24,7 +24,7 @@
         <input type="text" placeholder="Digite o modelo..." name="modelo">
         <br>
         <br>
-        <label>descricao:</label>
+        <label>descrição:</label>
         <input type="text" placeholder="Digite a descrição..." name="descricao">
         <br>
         <br>

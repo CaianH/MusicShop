@@ -23,7 +23,7 @@
         <input type="text" placeholder="Digite o modelo..." name="modelo" value="{{$produto->modelo}}">
         <br>
         <br>
-        <label>descricao:</label>
+        <label>descrição:</label>
         <input type="text" placeholder="Digite a descrição..." name="descricao" value="{{$produto->descricao}}">
         <br>
         <br>
