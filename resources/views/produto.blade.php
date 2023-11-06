@@ -7,10 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Produto</title>
     <link rel="stylesheet" href="{{ asset('css/cadProd.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <body>
     <form action="/cadastrar-produto" method="POST">
         @csrf
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
 
         <label>Nome:</label>
         <input type="text" placeholder="Digite o nome..." name="nome">
@@ -32,7 +39,7 @@
         <input type="text" placeholder="Digite o preço..." name="preco">
         <br>
         <br>
-        <button>Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>
 </html>
