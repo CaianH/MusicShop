@@ -44,8 +44,8 @@
                             <p class="card-text" _msttexthash="10082852" _msthash="21">Este é um cartão mais amplo com texto de apoio abaixo como um lead natural para conteúdo adicional. Este conteúdo é um pouco mais longo.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" _msttexthash="61152" _msthash="22">Vista</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" _msttexthash="75699" _msthash="23">Editar</button>
+                                    <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" class="btn btn-sm btn-outline-secondary">Excluir</a>
+                                    <a href="{{ route('editar-produto', ['produto' => $produto]) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                 </div>
                                 <small class="text-body-secondary" _msttexthash="117624" _msthash="24">9 minutos</small>
                             </div>

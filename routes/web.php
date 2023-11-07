@@ -17,7 +17,6 @@ Route::post('/cadastrar-produto', function (Request $data){
     $produto = Produto::create($data->only([
         'nome', 'marca', 'modelo', 'descricao', 'preco'
     ]));
-
     return response()->json($produto);
 });
 
@@ -33,7 +32,7 @@ Route::get('/consultar-produto', function () {
 
 Route::get('/editar-produto/{produto}', function (Produto $produto){
     return view('edit-produto', ['produto' => $produto]);
-});
+})->name('editar-produto');
 
 Route::put('/atualizar-produto/{id}', function (Request $data, $id) {
     $produto = (Produto::findOrFail($id));
@@ -54,6 +53,6 @@ Route::get('/excluir-produto/{id}', function ($id) {
     $produto = (Produto::findOrFail($id));
     $produto->delete();
     echo "excluido com sucesso";
-});
+})->name('excluir-produto');;
 
 

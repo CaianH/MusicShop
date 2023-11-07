@@ -13,8 +13,9 @@ return new class extends Migration
             $table->string('nome');
             $table->string('marca');
             $table->string('modelo');
-            $table->string('descricao');
+            $table->string('descricao')->nullable();;
             $table->double('preco');
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }
