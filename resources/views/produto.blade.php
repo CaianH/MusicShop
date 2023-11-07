@@ -14,31 +14,30 @@
         @csrf
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
 
-        <label>Nome:</label>
-        <input type="text" placeholder="Digite o nome..." name="nome">
-        <br>
-        <br>
-        <label>Marca:</label>
-        <input type="text" placeholder="Digite a marca..." name="marca">
-        <br>
-        <br>
-        <label>modelo:</label>
-        <input type="text" placeholder="Digite o modelo..." name="modelo">
-        <br>
-        <br>
-        <label>descrição:</label>
-        <input type="text" placeholder="Digite a descrição..." name="descricao">
-        <br>
-        <br>
-        <label>preço:</label>
-        <input type="text" placeholder="Digite o preço..." name="preco">
-        <br>
-        <br>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o nome..." name="nome">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Marca</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite a marca..." name="marca">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o modelo" name="modelo">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Preço</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o preço..." name="preco">
+        </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>

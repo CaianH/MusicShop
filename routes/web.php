@@ -2,6 +2,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
+use Illuminate\View\View;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,8 +54,10 @@ Route::put('/atualizar-produto/{id}', function (Request $data, $id) {
     echo 'Atualizado com sucesso!';
 });
 
+
 Route::get('/excluir-produto/{id}', function ($id) {
     $produto = (Produto::findOrFail($id));
     $produto->delete();
     echo "excluido com sucesso";
 });
+
