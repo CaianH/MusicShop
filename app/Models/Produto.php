@@ -12,13 +12,5 @@ class Produto extends Model
     protected $table = 'produto';
     protected $fillable = ['nome', 'marca','modelo','descricao','preco'];
 
-    public function index(): View
-    {
-        $produtos = Produto::all();
-
-        return view('produto', compact('produtos'));
-    }
-
-
 }
 
