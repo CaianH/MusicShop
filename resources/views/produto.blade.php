@@ -12,39 +12,73 @@
 
 </head>
 <body>
-<form action="/cadastrar-produto" method="POST">
+<h1 class="titulo">Cadastro de Produto</h1>
+<a href="http://localhost:8000">
+<img  class="btn-back" src="{{ asset('imagens/previous.png') }}" alt="Imagem">
+</a>
+<form action="/cadastrar-produto" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-md-6">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o nome..." name="nome">
+                @if ($errors->has('nome'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('nome') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Marca</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite a marca..." name="marca">
+                @if ($errors->has('marca'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('marca') }}
+                    </div>
+                @endif
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Modelo</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o modelo..." name="modelo">
+                @if ($errors->has('modelo'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('modelo') }}
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-md-6">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Modelo</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o modelo" name="modelo">
+                <label for="imagem" class="form-label">Imagem do Produto</label>
+                <input type="file" class="form-control" id="imagem" name="imagem">
+                @if ($errors->has('imagem'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('imagem') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao" placeholder="digite a descrição..."></textarea>
+                @if ($errors->has('descricao'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('descricao') }}
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Preço</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o preço..." name="preco">
+                @if ($errors->has('preco'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('preco') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
 </body>
 </html>

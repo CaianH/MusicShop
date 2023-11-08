@@ -37,17 +37,18 @@
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach($produtos as $produto)
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Espaço reservado: Miniatura" preserveAspectRatio="xMidYMid slice" focusable="false" _mstaria-label="470535" _mstHash="18"><title _mstTextHash="308451" _mstHash="19">Espaço reservado</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em" _mstTextHash="135850" _mstHash="20">Miniatura</text></svg>
+                <div class="col card1">
+                    <div id="card" class="card shadow-sm">
+                        <img src="{{ Storage::url($produto->path) }}" alt="Imagem do Produto" width="100%" height="225">
                         <div class="card-body">
-                            <p class="card-text" _msttexthash="10082852" _msthash="21">Este é um cartão mais amplo com texto de apoio abaixo como um lead natural para conteúdo adicional. Este conteúdo é um pouco mais longo.</p>
+                            <h4 class="card-title">{{ $produto->nome }}</h4>
+                            <p class="card-text">{{ $produto->descricao }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" class="btn btn-sm btn-outline-secondary">Excluir</a>
                                     <a href="{{ route('editar-produto', ['produto' => $produto]) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                 </div>
-                                <small class="text-body-secondary" _msttexthash="117624" _msthash="24">9 minutos</small>
+                                <p id="preco" class="card-text">R$ {{ $produto->preco }}</p>
                             </div>
                         </div>
                     </div>
