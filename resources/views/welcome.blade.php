@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicShop</title>
     <script src="{{ asset('js/app.js') }}"></script>
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -34,6 +35,17 @@
 </section>
 
 <div class="album py-5 bg-body-tertiary">
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-6 text-center" style="margin-bottom: 50px;>
+                <label for="filtroGeral">Pesquisar:</label>
+                <input type="text" id="filtroGeral" style="max-width: 500px;" class="form-control mx-auto" placeholder="Digite para pesquisar...">
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -58,26 +70,6 @@
         </div>
     </div>
 </div>
-<script>
-    // Adicione este script no seu arquivo Blade ou em um arquivo JavaScript separado
-    document.addEventListener("DOMContentLoaded", function() {
-        var deleteButtons = document.querySelectorAll('.delete-product');
-
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                event.preventDefault();
-                var productId = button.getAttribute('data-id');
-
-                // Exibe um modal de confirmação
-                if (confirm('Tem certeza que deseja excluir este produto?')) {
-                    // Se o usuário confirmar, redirecione para a rota de exclusão
-                    window.location.href = '/excluir-produto/' + productId;
-                }
-            });
-        });
-    });
-</script>
-
 <footer>
     <p>&copy; 2023 Minha Loja de Instrumentos Musicais</p>
 </footer>

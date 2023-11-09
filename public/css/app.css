@@ -50,6 +50,10 @@ footer {
     font-weight: bold;
 }
 
+label{
+    font-weight: bold;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     header {
