@@ -1,18 +1,17 @@
 import './bootstrap';
 
-function previewImage(input) {
-    const preview = document.getElementById('preview');
-    const imagePreview = document.getElementById('imagePreview');
-
-    if (input.files && input.files[0]) {
+document.getElementById('imagem').addEventListener('change', function () {
+    const fileInput = this;
+    const imagePreview = document.getElementById('imagem-preview');
+    if (fileInput.files && fileInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            preview.src = e.target.result;
+            imagePreview.src = e.target.result;
         };
-        reader.readAsDataURL(input.files[0]);
-        imagePreview.style.display = 'block';
+        reader.readAsDataURL(fileInput.files[0]);
     } else {
-        preview.src = '';
-        imagePreview.style.display = 'none';
+        imagePreview.src = '#'; // Limpa a visualização se o usuário não selecionar nenhum arquivo
     }
-}
+});
+
+

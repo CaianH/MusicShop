@@ -8,7 +8,7 @@
     <title>Produto</title>
     <link rel="stylesheet" href="{{ asset('css/cadProd.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="../js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
 <body>
@@ -49,6 +49,7 @@
             </div>
         </div>
         <div class="col-md-6">
+            <div class="element-img">
             <div class="mb-3">
                 <label for="imagem" class="form-label">Imagem do Produto</label>
                 <input type="file" class="form-control" id="imagem" name="imagem">
@@ -57,6 +58,9 @@
                         {{ $errors->first('imagem') }}
                     </div>
                 @endif
+
+            </div>
+                <img id="imagem-preview" src="{{ asset('imagens/insert-picture-icon.png') }}" alt="Prévia da imagem">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>

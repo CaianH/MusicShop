@@ -134,3 +134,22 @@ button {
 .btn-back:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+#imagem-preview {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 7rem;
+    height: 7rem;
+}
+
+.element-img{
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .element-img {
+        flex-direction: column; /* Altera a direção do flex para "coluna" */
+    }
+}
+
