@@ -127,7 +127,7 @@ Route::put('/atualizar-produto/{id}', function (Request $request, $id) {
 Route::get('/excluir-produto/{id}', function ($id) {
     $produto = (Produto::findOrFail($id));
     $produto->delete();
-    return back();
+    return back()->with('message', 'Produto excluído com sucesso!');;
 })->name('excluir-produto');;
 
 

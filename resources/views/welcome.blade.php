@@ -46,7 +46,7 @@
                             <p class="card-text">{{ $produto->descricao }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" onclick="confirmation(event)" class="btn btn-sm btn-outline-secondary">Excluir</a>
+                                    <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" onclick="confirmation(event)" data-id="{{ $produto->id }}" class="btn btn-sm btn-outline-secondary delete-product">Excluir</a>
                                     <a href="{{ route('editar-produto', ['produto' => $produto]) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                 </div>
                                 <p id="preco" class="card-text">R$ {{ $produto->preco }}</p>
@@ -58,6 +58,25 @@
         </div>
     </div>
 </div>
+<script>
+    // Adicione este script no seu arquivo Blade ou em um arquivo JavaScript separado
+    document.addEventListener("DOMContentLoaded", function() {
+        var deleteButtons = document.querySelectorAll('.delete-product');
+
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                var productId = button.getAttribute('data-id');
+
+                // Exibe um modal de confirmação
+                if (confirm('Tem certeza que deseja excluir este produto?')) {
+                    // Se o usuário confirmar, redirecione para a rota de exclusão
+                    window.location.href = '/excluir-produto/' + productId;
+                }
+            });
+        });
+    });
+</script>
 
 <footer>
     <p>&copy; 2023 Minha Loja de Instrumentos Musicais</p>
