@@ -19,7 +19,7 @@
     </nav>
 </header>
 
-<section class="py-5 text-center container">
+<section id = "home" class="py-5 text-center container">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light" _msttexthash="285103" _msthash="14">Music Shop</h1>

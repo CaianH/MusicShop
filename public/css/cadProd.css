@@ -13,17 +13,20 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #15171c;
+    background-image: url('../imagens/fundo.jpg');
+    background-repeat: no-repeat;
 }
 .titulo{
     padding-bottom: 3rem;
+    color: #ffffff;
 }
 form {
     width: 100%;
     max-width: 80%;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #fcfcfc;
+    border-radius: 2rem;
 }
 
 .mb-3{

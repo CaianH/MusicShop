@@ -57,7 +57,7 @@ Route::post('/cadastrar-produto', function (Request $request){
     ]);
 
 
-    return response()->json($produto);
+    return view('produto')->with('success', true);
 });
 
 Route::get('/consultar-produto/{produto}', function (Produto $produto){
