@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicShop</title>
+    <script src="{{ asset('js/app.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -45,7 +46,7 @@
                             <p class="card-text">{{ $produto->descricao }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" class="btn btn-sm btn-outline-secondary">Excluir</a>
+                                    <a href="{{ route('excluir-produto', ['id' => $produto->id]) }}" onclick="confirmation(event)" class="btn btn-sm btn-outline-secondary">Excluir</a>
                                     <a href="{{ route('editar-produto', ['produto' => $produto]) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                                 </div>
                                 <p id="preco" class="card-text">R$ {{ $produto->preco }}</p>

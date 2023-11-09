@@ -14,4 +14,27 @@ document.getElementById('imagem').addEventListener('change', function () {
     }
 });
 
+function confirmation(ev){
+    ev.preventDefault();
+
+    var urlToRedirect = ev.currentTarget.getAttribute('href');
+
+    console.log(urlToRedirect);
+
+    swal({
+        title: "Deseja Realmente Excluir o Produto?",
+        text: "Você ainda pode cancelar a exclusão",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willCancel)
+    {
+        if (willCancel){
+            window.location.href = urlToRedirect;
+        }
+    });
+
+}
+
 

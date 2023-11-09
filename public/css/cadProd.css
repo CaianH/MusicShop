@@ -24,9 +24,9 @@ form {
     width: 100%;
     max-width: 80%;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: #fcfcfc;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 .mb-3{
@@ -121,9 +121,16 @@ button {
     -moz-user-select: none;
     user-select: none;
     border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
-    border-radius: var(--bs-btn-border-radius);
-    background-color: #38b038;
+    border-radius: 0.3rem;
+    background-color: #3379fd;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-cad{
+    border-radius: 0.3rem;
+}
+.btn-cad:hover{
+    background-color: #354baf;
 }
 
 .btn-back {

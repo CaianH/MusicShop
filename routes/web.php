@@ -56,8 +56,8 @@ Route::post('/cadastrar-produto', function (Request $request){
         'path' => $imagemPath,
     ]);
 
-
-    return view('produto')->with('success', true);
+    return back()->with('message','cadastrado com sucesso!');
+    //return view('produto')->with('success', true);
 });
 
 Route::get('/consultar-produto/{produto}', function (Produto $produto){
@@ -74,25 +74,60 @@ Route::get('/editar-produto/{produto}', function (Produto $produto){
     return view('edit-produto', ['produto' => $produto]);
 })->name('editar-produto');
 
-Route::put('/atualizar-produto/{id}', function (Request $data, $id) {
-    $produto = (Produto::findOrFail($id));
+Route::put('/atualizar-produto/{id}', function (Request $request, $id) {
+    // Defina regras de validação para cada campo, semelhante ao que você fez na rota de criação
+    $regras = [
+        'nome' => 'required|string|max:255',
+        'marca' => 'required|string|max:255',
+        'modelo' => 'required|string|max:255',
+        'descricao' => 'required|string',
+        'preco' => 'required|numeric',
+        'imagem' => 'image|mimes:jpeg,png,gif|max:2048',
+    ];
 
-    $produto->update($data->only([
-        'nome',
-        'marca',
-        'modelo',
-        'descricao',
-        'preco'
-    ]));
+    // Mensagens personalizadas para as validações, semelhante ao que você fez na rota de criação
+    $mensagens = [
+        'required' => 'O campo :attribute é obrigatório.',
+        'string' => 'O campo :attribute deve ser uma string.',
+        'max' => 'O campo :attribute não pode ter mais de :max caracteres.',
+        'numeric' => 'O campo :attribute deve ser um número.',
+        'image' => 'O campo :attribute deve ser uma imagem.',
+        'mimes' => 'O campo :attribute deve ser do tipo :values.',
+        'max' => 'O tamanho máximo do arquivo :attribute é :max kilobytes.',
+    ];
 
-    echo 'Atualizado com sucesso!';
+    $data = $request->all();
+
+    if ($request->hasFile('imagem')) {
+        $imagemPath = $request->file('imagem')->store('public/imagens/produtos');
+    } else {
+        $imagemPath = null;
+    }
+
+
+    // Valide os dados do formulário, incluindo a imagem
+    $request->validate($regras, $mensagens);
+
+    // Encontre o produto com o ID especificado
+    $produto = Produto::findOrFail($id);
+
+    // Atualize os atributos do produto com os novos dados
+    $produto->update([
+        'nome' => $data['nome'],
+        'marca' => $data['marca'],
+        'modelo' => $data['modelo'],
+        'descricao' => $data['descricao'],
+        'preco' => $data['preco'],
+        'path' => $imagemPath,
+    ]);
+    return back()->with('message', 'Atualizado com sucesso!');
 });
 
 
 Route::get('/excluir-produto/{id}', function ($id) {
     $produto = (Produto::findOrFail($id));
     $produto->delete();
-    echo "excluido com sucesso";
+    return back();
 })->name('excluir-produto');;
 
 
