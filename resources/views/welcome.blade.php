@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MusicShop</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -26,7 +27,7 @@
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light" _msttexthash="285103" _msthash="14">Music Shop</h1>
-            <p class="lead text-body-secondary" _msttexthash="21445086" _msthash="15">Algo curto e importante sobre a coleção abaixo – seu conteúdo, o criador, etc. Torne-o curto e doce, mas não muito curto para que as pessoas não simplesmente pulem por cima dele.</p>
+            <p class="lead text-body-secondary" _msttexthash="21445086" _msthash="15">Harmonize sua paixão, amplifique seu talento: na nossa loja, a música ganha vida!</p>
             <p>
                 <a href="http://localhost:8000/produto" class="btn btn-primary my-2" _msttexthash="522860" _msthash="16">Cadastrar</a>
                 <a href="http://localhost:8000/relatorios"  id="btnRelatorio" class="btn btn-secondary my-2" _msttexthash="344032" _msthash="17">Relatório</a>
@@ -48,7 +49,7 @@
 
 
     <div class="container">
-
+        <button id="btnExportarCSV" class="btn btn-success my-2">Exportar CSV</button>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach($produtos as $produto)
                 <div class="col card1">

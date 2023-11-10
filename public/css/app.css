@@ -54,6 +54,12 @@ label{
     font-weight: bold;
 }
 
+#btnExportarCSV{
+    width: 7rem;
+    font-size: 13px;
+    font-weight: bold;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
     header {

@@ -31,7 +31,12 @@
     @foreach ($produtos as $produto)
         <div class="product">
             @if ($produto->path)
-                <img src="{{ Storage::url($produto->path) }}" alt="{{ $produto->nome }}">
+                    <?php
+                    $imagePath = public_path(Storage::url($produto->path));
+                    $imageData = base64_encode(file_get_contents($imagePath));
+                    $imageBase64 = 'data:image/' . pathinfo($imagePath, PATHINFO_EXTENSION) . ';base64,' . $imageData;
+                    ?>
+                <img src="{{ $imageBase64 }}" alt="{{ $produto->nome }}">
             @else
                 <p>Imagem não disponível</p>
             @endif

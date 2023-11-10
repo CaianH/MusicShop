@@ -72,3 +72,27 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '/relatorios?filtro=' + encodeURIComponent(filtro);
     });
 });
+
+$(document).ready(function() {
+    $('#btnExportarCSV').on('click', function() {
+        var urlBackend = '/gerar-csv';  // ajuste conforme necessário
+
+        $.ajax({
+            url: urlBackend,
+            method: 'GET',
+            success: function(response) {
+                var link = document.createElement('a');
+                link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(response);
+                link.download = 'relatorio_produtos.csv';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            },
+            error: function(error) {
+                console.error('Erro ao exportar CSV:', error);
+            }
+        });
+    });
+});
+
+

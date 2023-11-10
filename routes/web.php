@@ -14,23 +14,40 @@ Route::get('/produto', function () {
     return view('produto');
 });
 
+Route::get('/gerar-csv', function () {
+    // Obtenha os dados dos produtos (ajuste conforme necessário)
+    $produtos = Produto::all();
+
+    // Crie o conteúdo do CSV
+    $csv = "Nome,Descrição,Preço\n";
+
+    foreach ($produtos as $produto) {
+        $csv .= "{$produto->nome},{$produto->descricao},{$produto->preco}\n";
+    }
+
+    // Retorna o CSV como resposta
+    return Response::make($csv, 200, [
+        'Content-Type' => 'text/csv',
+        'Content-Disposition' => 'attachment; filename=relatorio_produtos.csv',
+    ]);
+});
+
 Route::get('/relatorios', function (Request $request) {
+    // Obtenha o valor do campo de filtro
     $filtro = $request->input('filtro');
 
-    // Se houver um filtro, faça a consulta filtrada
-    if ($filtro) {
-        $produtos = Produto::where('nome', 'like', '%' . $filtro . '%')->get();
-    } else {
-        // Se não houver filtro, obtenha todos os produtos
-        $produtos = Produto::all();
-    }
+    // Execute a consulta
+    $produtos = Produto::where('nome', 'ilike', '%' . $filtro . '%')
+        ->orWhere('descricao', 'ilike', '%' . $filtro . '%')
+        ->orWhere('preco', 'ilike', '%' . $filtro . '%')
+        // Adicione mais campos conforme necessário
+        ->get();
 
     // Carregue a visualização do relatório com base nos produtos obtidos
     $pdf = Pdf::loadView('relatorios', compact('produtos'));
 
     // Retorne o relatório como uma resposta para ser visualizado ou baixado
     return $pdf->stream('relatorio.pdf');
-
     /*
     $produtos = Produto::all();
     $pdf = Pdf::loadView('relatorios',compact('produtos'));
