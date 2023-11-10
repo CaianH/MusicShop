@@ -31,7 +31,7 @@
     @foreach ($produtos as $produto)
         <div class="product">
             @if ($produto->path)
-                <img src="{{ Storage::url($produto->path) }}" >
+                <img src="{{ Storage::url($produto->path) }}" alt="{{ $produto->nome }}">
             @else
                 <p>Imagem não disponível</p>
             @endif
