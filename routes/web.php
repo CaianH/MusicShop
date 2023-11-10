@@ -13,11 +13,29 @@ Route::get('/', function () {
 Route::get('/produto', function () {
     return view('produto');
 });
-Route::get('/relatorios', function () {
+
+Route::get('/relatorios', function (Request $request) {
+    $filtro = $request->input('filtro');
+
+    // Se houver um filtro, faça a consulta filtrada
+    if ($filtro) {
+        $produtos = Produto::where('nome', 'like', '%' . $filtro . '%')->get();
+    } else {
+        // Se não houver filtro, obtenha todos os produtos
+        $produtos = Produto::all();
+    }
+
+    // Carregue a visualização do relatório com base nos produtos obtidos
+    $pdf = Pdf::loadView('relatorios', compact('produtos'));
+
+    // Retorne o relatório como uma resposta para ser visualizado ou baixado
+    return $pdf->stream('relatorio.pdf');
+
+    /*
     $produtos = Produto::all();
     $pdf = Pdf::loadView('relatorios',compact('produtos'));
-    return $pdf->stream('invoice.pdf');
-});
+    return $pdf->stream('invoice.pdf');*/
+})->name('relatorios');;
 
 Route::post('/cadastrar-produto', function (Request $request){
     // Defina regras de validação para cada campo

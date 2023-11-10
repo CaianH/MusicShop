@@ -29,7 +29,7 @@
             <p class="lead text-body-secondary" _msttexthash="21445086" _msthash="15">Algo curto e importante sobre a coleção abaixo – seu conteúdo, o criador, etc. Torne-o curto e doce, mas não muito curto para que as pessoas não simplesmente pulem por cima dele.</p>
             <p>
                 <a href="http://localhost:8000/produto" class="btn btn-primary my-2" _msttexthash="522860" _msthash="16">Cadastrar</a>
-                <a href="http://localhost:8000/relatorios" class="btn btn-secondary my-2" _msttexthash="344032" _msthash="17">Relatório</a>
+                <a href="http://localhost:8000/relatorios"  id="btnRelatorio" class="btn btn-secondary my-2" _msttexthash="344032" _msthash="17">Relatório</a>
             </p>
         </div>
     </div>
@@ -41,7 +41,7 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-6 text-center" style="margin-bottom: 50px;>
                 <label for="filtroGeral">Pesquisar:</label>
-                <input type="text" id="filtroGeral" style="max-width: 500px;" class="form-control mx-auto" placeholder="Digite para pesquisar...">
+                <input type="text" id="filtroGeral" name="filtro" style="max-width: 500px;" class="form-control mx-auto" placeholder="Digite para pesquisar...">
             </div>
         </div>
     </div>

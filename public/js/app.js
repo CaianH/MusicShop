@@ -53,4 +53,22 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    // Aguarde o DOM estar pronto
 
+    // Selecione o botão e o campo de filtro pelo ID
+    var btnRelatorio = document.getElementById('btnRelatorio');
+    var filtroGeral = document.getElementById('filtroGeral');
+
+    // Adicione um ouvinte de evento ao botão
+    btnRelatorio.addEventListener('click', function (e) {
+        // Impedir o comportamento padrão de clicar no link
+        e.preventDefault();
+
+        // Obter o valor do campo de filtro
+        var filtro = filtroGeral.value;
+
+        // Redirecionar para a rota de relatório com o parâmetro de filtro
+        window.location.href = '/relatorios?filtro=' + encodeURIComponent(filtro);
+    });
+});
