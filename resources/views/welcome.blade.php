@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 <body>
 <header>
@@ -28,7 +29,7 @@
             <p class="lead text-body-secondary" _msttexthash="21445086" _msthash="15">Algo curto e importante sobre a coleção abaixo – seu conteúdo, o criador, etc. Torne-o curto e doce, mas não muito curto para que as pessoas não simplesmente pulem por cima dele.</p>
             <p>
                 <a href="http://localhost:8000/produto" class="btn btn-primary my-2" _msttexthash="522860" _msthash="16">Cadastrar</a>
-                <a href="#" class="btn btn-secondary my-2" _msttexthash="344032" _msthash="17">Relatório</a>
+                <a href="http://localhost:8000/relatorios" class="btn btn-secondary my-2" _msttexthash="344032" _msthash="17">Relatório</a>
             </p>
         </div>
     </div>

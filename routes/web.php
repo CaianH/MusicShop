@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 use Illuminate\Support\Facades\View;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 Route::get('/', function () {
     $produtos = Produto::all();
@@ -11,6 +12,11 @@ Route::get('/', function () {
 
 Route::get('/produto', function () {
     return view('produto');
+});
+Route::get('/relatorios', function () {
+    $produtos = Produto::all();
+    $pdf = Pdf::loadView('relatorios',compact('produtos'));
+    return $pdf->stream('invoice.pdf');
 });
 
 Route::post('/cadastrar-produto', function (Request $request){
