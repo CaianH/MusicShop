@@ -14,6 +14,7 @@
 <body>
 <header>
     <nav>
+        <img class="logo" src="{{ asset('imagens/music.png') }}" alt="Prévia da imagem">
         <ul>
             <li><a href="#">Início</a></li>
             <li><a href="http://localhost:8000/produto">Produto</a></li>
@@ -41,7 +42,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-6 text-center" style="margin-bottom: 50px;>
-                <label for="filtroGeral">Pesquisar:</label>
+                <label for="filtroGeral">Pesquisar</label>
                 <input type="text" id="filtroGeral" name="filtro" style="max-width: 500px;" class="form-control mx-auto" placeholder="Digite para pesquisar...">
             </div>
         </div>
