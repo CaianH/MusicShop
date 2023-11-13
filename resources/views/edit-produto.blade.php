@@ -27,27 +27,21 @@
                     <label for="exampleFormControlInput1" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o nome..." name="nome" value="{{ $produto->nome }}">
                     @if ($errors->has('nome'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('nome') }}
-                        </div>
+                        <span class="text-danger">{{ $errors->first('nome') }}</span>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Marca</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite a marca..." name="marca" value="{{ $produto->marca }}">
                     @if ($errors->has('marca'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('marca') }}
-                        </div>
+                        <span class="text-danger">{{ $errors->first('marca') }}</span>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Modelo</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o modelo..." name="modelo" value="{{ $produto->modelo }}">
                     @if ($errors->has('modelo'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('modelo') }}
-                        </div>
+                        <span class="text-danger">{{ $errors->first('modelo') }}</span>
                     @endif
                 </div>
             </div>
@@ -57,9 +51,7 @@
                         <label for="imagem" class="form-label">Imagem do Produto</label>
                         <input type="file" class="form-control" id="imagem" name="imagem">
                         @if ($errors->has('imagem'))
-                            <div class="alert alert-danger">
-                                {{ $errors->first('imagem') }}
-                            </div>
+                            <span class="text-danger">{{ $errors->first('imagem') }}</span>
                         @endif
                     </div>
                     <img id="imagem-preview" src="{{ $produto->path ?  Storage::url($produto->path) : asset('imagens/insert-picture-icon.png') }}" alt="Prévia da imagem">
@@ -68,18 +60,14 @@
                     <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao" placeholder="digite a descrição...">{{ $produto->descricao }}</textarea>
                     @if ($errors->has('descricao'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('descricao') }}
-                        </div>
+                        <span class="text-danger">{{ $errors->first('descricao') }}</span>
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Preço</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="digite o preço..." name="preco" value="{{ $produto->preco }}">
                     @if ($errors->has('preco'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('preco') }}
-                        </div>
+                        <span class="text-danger">{{ $errors->first('preco') }}</span>
                     @endif
                 </div>
             </div>
